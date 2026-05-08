@@ -45,6 +45,8 @@ autoencoder = tf.keras.models.Sequential([
 
 autoencoder.compile(loss='binary_crossentropy', optimizer=tf.keras.optimizers.Adam(learning_rate=0.001))
 autoencoder.summary()
+autoencoder.fit(X_train_noisy.reshape(-1, 28, 28, 1), X_train.reshape(-1, 28, 28, 1), epochs=10,batch_size=200,
+                validation_data=(X_test_noisy.reshape(-1, 28, 28,1), X_test.reshape(-1, 28, 28, 1)))
 
 evaluation = autoencoder.evaluate(X_test_noisy.reshape(-1, 28, 28,1), X_test.reshape(-1, 28, 28, 1))
 print('Test Accuracy : {:.3f}'.format(evaluation))
