@@ -7,7 +7,6 @@ def generate_sequence(n):
     x = np.linspace(0, 50, n)
     y = np.sin(x)
     return y
-
 x = []
 y = []
 
